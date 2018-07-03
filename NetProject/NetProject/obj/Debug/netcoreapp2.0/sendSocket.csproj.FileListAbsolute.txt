@@ -1,0 +1,11 @@
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/bin/Debug/netcoreapp2.0/sendSocket.deps.json
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/bin/Debug/netcoreapp2.0/sendSocket.runtimeconfig.json
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/bin/Debug/netcoreapp2.0/sendSocket.runtimeconfig.dev.json
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/bin/Debug/netcoreapp2.0/sendSocket.dll
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/bin/Debug/netcoreapp2.0/sendSocket.pdb
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/obj/Debug/netcoreapp2.0/sendSocket.csprojResolveAssemblyReference.cache
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/obj/Debug/netcoreapp2.0/sendSocket.csproj.CoreCompileInputs.cache
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/obj/Debug/netcoreapp2.0/sendSocket.AssemblyInfoInputs.cache
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/obj/Debug/netcoreapp2.0/sendSocket.AssemblyInfo.cs
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/obj/Debug/netcoreapp2.0/sendSocket.dll
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/NetProject/obj/Debug/netcoreapp2.0/sendSocket.pdb

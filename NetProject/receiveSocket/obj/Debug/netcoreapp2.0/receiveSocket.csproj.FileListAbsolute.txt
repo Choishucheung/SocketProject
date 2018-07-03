@@ -1,0 +1,11 @@
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/bin/Debug/netcoreapp2.0/receiveSocket.deps.json
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/bin/Debug/netcoreapp2.0/receiveSocket.runtimeconfig.json
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/bin/Debug/netcoreapp2.0/receiveSocket.runtimeconfig.dev.json
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/bin/Debug/netcoreapp2.0/receiveSocket.dll
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/bin/Debug/netcoreapp2.0/receiveSocket.pdb
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/obj/Debug/netcoreapp2.0/receiveSocket.csprojResolveAssemblyReference.cache
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/obj/Debug/netcoreapp2.0/receiveSocket.csproj.CoreCompileInputs.cache
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/obj/Debug/netcoreapp2.0/receiveSocket.AssemblyInfoInputs.cache
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/obj/Debug/netcoreapp2.0/receiveSocket.AssemblyInfo.cs
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/obj/Debug/netcoreapp2.0/receiveSocket.dll
+/Users/v_caisxcai/Documents/GitHub/SocketProject/NetProject/receiveSocket/obj/Debug/netcoreapp2.0/receiveSocket.pdb
