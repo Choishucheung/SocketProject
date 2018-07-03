@@ -19,7 +19,7 @@
 > 127.0.0.1 代表本机 万能  
 
 ## 监听端口send、receive
-对端口进行监听，队列为10个。Listen
+对端口进行监听，队列为10个。Listen需要的参数是队列。
 接收端口号，Accept。Accept会返回一个socket。
 利用新的这个socket进行send数据。数据不能是string，必须是byte数组。
 `System.Text.Encoding.UTF8.GetBytes`
