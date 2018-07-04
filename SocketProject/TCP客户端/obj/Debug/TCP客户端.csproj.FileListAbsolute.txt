@@ -11,3 +11,4 @@ C:\Users\chois\Documents\GitHub\SocketProject\SocketProject\TCP客户端\bin\Deb
 C:\Users\chois\Documents\GitHub\SocketProject\SocketProject\TCP客户端\obj\Debug\TCP客户端.csproj.CoreCompileInputs.cache
 C:\Users\chois\Documents\GitHub\SocketProject\SocketProject\TCP客户端\obj\Debug\TCP客户端.exe
 C:\Users\chois\Documents\GitHub\SocketProject\SocketProject\TCP客户端\obj\Debug\TCP客户端.pdb
+C:\Users\chois\Documents\GitHub\SocketProject\SocketProject\TCP客户端\obj\Debug\TCP客户端.csprojResolveAssemblyReference.cache

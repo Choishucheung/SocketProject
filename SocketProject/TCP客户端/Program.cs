@@ -16,13 +16,16 @@ namespace TCP客户端
             string msg = Encoding.UTF8.GetString(dataBuffer, 0, count);
             Console.Write(msg);
 
-            string s = Console.ReadLine();
-            Console.Write(s);
-            Byte[] sendmsg = Encoding.UTF8.GetBytes(s);
-            clientSocket.Send(sendmsg);
-
+            while (true) {
+                string s = Console.ReadLine();
+                Console.Write(s);
+                Byte[] sendmsg = Encoding.UTF8.GetBytes(s);
+                clientSocket.Send(sendmsg);
+             }
             Console.ReadKey();
             clientSocket.Close();
         }
+
+        
     }
 }

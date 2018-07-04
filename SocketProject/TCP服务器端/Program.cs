@@ -9,11 +9,18 @@ namespace TCP服务器端
     {
         static void Main(string[] args)
         {
+            StartServerAsync();
+            Console.ReadKey();
+        }
+
+
+        static void StartServerAsync()
+        {
             Console.Write("TCP服务端启动");
 
-            Socket socket = new Socket(AddressFamily.InterNetwork,SocketType.Stream, ProtocolType.Tcp);
+            Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Bind(new IPEndPoint(IPAddress.Parse("192.168.31.105"), 90));
-            
+
             socket.Listen(10);
             Socket cliectSocket = socket.Accept();
             string send = "你好";
@@ -21,15 +28,28 @@ namespace TCP服务器端
             cliectSocket.Send(dataBuffer);
 
 
-            Byte[] receiveDate = new Byte[1024];
-            int count = cliectSocket.Receive(receiveDate);
-            string receive = Encoding.UTF8.GetString(receiveDate, 0, count);
-            Console.WriteLine(receive);
+            //Byte[] receiveDate = new Byte[1024];
+            //int count = cliectSocket.Receive(receiveDate);
+            //string receive = Encoding.UTF8.GetString(receiveDate, 0, count);
+            //Console.WriteLine(receive);
 
-            Console.ReadKey();
-            cliectSocket.Close();
-            socket.Close();
+            //Console.ReadKey();
+            //cliectSocket.Close();
+            //socket.Close();
+
+            Data = new Byte[1024];
+            cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, cliectSocket);
 
         }
+
+        static Byte[] Data = new Byte[1024];
+
+        static void ReceiveCallBack(IAsyncResult ar) {
+            Socket CallBackSocket = ar.AsyncState as Socket;
+            int count = CallBackSocket.EndReceive(ar);
+            Console.WriteLine("从客户端接受到的数据"+Encoding.UTF8.GetString(Data,0, count));
+            CallBackSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, CallBackSocket);
+        }
+
     }
 }

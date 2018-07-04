@@ -47,4 +47,19 @@ Console.ReadKey();
 这个可以让控制台暂停等待下一步动作。
 
 
+## 异步消息接收消息
+使用 Receive 方法，一直是暂停在那里直到有东西传过来。
+### 使用线程
+**StartServerAsync**
+*BeginReceive* 开始异步接收数据
+socketFlags 不使用 
+CallBack 使用哪个方法处理，用事件的方式
+*EndReceive* 结束接收
 
+**Callback**
+在callback中结束接收。Callback需要有一个参数 IAsyncResult 类型 用于接收object
+end需要一个返回值，即ar
+相应的，在begin的data可以拿出来用了 end的时候返回一个count
+最后在callback继续调用begin，这样就形成了一个循环。
+
+在客户端也是这样，循环调用 send
