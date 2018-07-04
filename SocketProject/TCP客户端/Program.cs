@@ -10,16 +10,18 @@ namespace TCP客户端
         static void Main(string[] args)
         {
             Socket clientSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            clientSocket.Connect(new IPEndPoint(IPAddress.Parse("192.168.31.105"), 88));
+            clientSocket.Connect(new IPEndPoint(IPAddress.Parse("192.168.31.105"), 90));
             Byte[] dataBuffer = new Byte[1024];
             int count = clientSocket.Receive(dataBuffer);
             string msg = Encoding.UTF8.GetString(dataBuffer, 0, count);
             Console.Write(msg);
 
             string s = Console.ReadLine();
+            Console.Write(s);
             Byte[] sendmsg = Encoding.UTF8.GetBytes(s);
             clientSocket.Send(sendmsg);
 
+            Console.ReadKey();
             clientSocket.Close();
         }
     }
