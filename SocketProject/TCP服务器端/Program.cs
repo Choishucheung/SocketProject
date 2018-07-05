@@ -62,10 +62,32 @@ namespace TCP服务器端
        
 
         static void ReceiveCallBack(IAsyncResult ar) {
-            Socket CallBackSocket = ar.AsyncState as Socket;
-            int count = CallBackSocket.EndReceive(ar);
-            Console.WriteLine("从客户端接受到的数据"+Encoding.UTF8.GetString(Data,0, count));
-            CallBackSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, CallBackSocket);
+            Socket CallBackSocket = ar.AsyncState as Socket;//System.Net.Sockets.SocketException
+            try
+            {
+                int count = CallBackSocket.EndReceive(ar);
+                if (count == 0) {
+                    if (CallBackSocket != null)
+                    {
+                        CallBackSocket.Close();
+                    }
+                    return;
+                }
+                Console.WriteLine("从客户端接受到的数据" + Encoding.UTF8.GetString(Data, 0, count));
+                CallBackSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, CallBackSocket);
+            }
+            catch(SocketException)
+            {
+                if (CallBackSocket != null)
+                {
+                    CallBackSocket.Close();
+                }
+                
+            }
+            finally {
+
+            }
+           
         }
 
     }

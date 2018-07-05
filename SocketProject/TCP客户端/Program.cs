@@ -18,7 +18,10 @@ namespace TCP客户端
 
             while (true) {
                 string s = Console.ReadLine();
-                Console.Write(s);
+                if (s == "c") {
+                    clientSocket.Close();
+                    return;
+                }
                 Byte[] sendmsg = Encoding.UTF8.GetBytes(s);
                 clientSocket.Send(sendmsg);
              }
