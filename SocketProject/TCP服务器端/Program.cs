@@ -52,16 +52,14 @@ namespace TCP服务器端
             Byte[] dataBuffer = Encoding.UTF8.GetBytes(send);
             cliectSocket.Send(dataBuffer);
             Data = new Byte[1024];
-            cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, acceptSocket);
+            cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, cliectSocket);
             acceptSocket.BeginAccept(AcceptCallBack, acceptSocket);
         }
 
         static Byte[] Data = new Byte[1024];
 
 
-        static void AcceptCallBack() {
-
-        }
+       
 
         static void ReceiveCallBack(IAsyncResult ar) {
             Socket CallBackSocket = ar.AsyncState as Socket;
