@@ -1,6 +1,8 @@
 ## VS2017 
 新建项目->Visual C#->控制台应用(.NET Framework)
 
+> Obj文件夹里面为生成的中间文件。
+
 ## Socket端
 ### 初始化Socket
 引用，在Net里面
@@ -63,3 +65,20 @@ end需要一个返回值，即ar
 最后在callback继续调用begin，这样就形成了一个循环。
 
 在客户端也是这样，循环调用 send
+
+
+## 多个客户端发送消息的接收
+使用BeginAccept方法和EndAccept方法。
+然后在一个callback里面进行循环。
+
+
+## 客户端关闭异常情况
+try-catch语句
+```
+exception e
+```
+然后对异常进行捕获，如果有异常就 close。下一个还可以继续通讯。
+客户端输入某个字符串就关闭，但关闭之后一直发空消息给服务器端。
+服务器端对count进行判断。
+
+

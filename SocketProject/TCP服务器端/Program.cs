@@ -22,10 +22,12 @@ namespace TCP服务器端
             socket.Bind(new IPEndPoint(IPAddress.Parse("192.168.31.105"), 90));
 
             socket.Listen(10);
-            Socket cliectSocket = socket.Accept();
-            string send = "你好";
-            Byte[] dataBuffer = Encoding.UTF8.GetBytes(send);
-            cliectSocket.Send(dataBuffer);
+
+            socket.BeginAccept(AcceptCallBack,socket);
+            //Socket cliectSocket = socket.Accept();
+            //string send = "你好";
+            //Byte[] dataBuffer = Encoding.UTF8.GetBytes(send);
+            //cliectSocket.Send(dataBuffer);
 
 
             //Byte[] receiveDate = new Byte[1024];
@@ -37,12 +39,29 @@ namespace TCP服务器端
             //cliectSocket.Close();
             //socket.Close();
 
-            Data = new Byte[1024];
-            cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, cliectSocket);
+            //Data = new Byte[1024];
+            //cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, cliectSocket);
 
         }
 
+        private static void AcceptCallBack(IAsyncResult ar)
+        {
+            Socket acceptSocket = ar.AsyncState as Socket;
+            Socket cliectSocket = acceptSocket.EndAccept(ar);
+            string send = "你好";
+            Byte[] dataBuffer = Encoding.UTF8.GetBytes(send);
+            cliectSocket.Send(dataBuffer);
+            Data = new Byte[1024];
+            cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, acceptSocket);
+            acceptSocket.BeginAccept(AcceptCallBack, acceptSocket);
+        }
+
         static Byte[] Data = new Byte[1024];
+
+
+        static void AcceptCallBack() {
+
+        }
 
         static void ReceiveCallBack(IAsyncResult ar) {
             Socket CallBackSocket = ar.AsyncState as Socket;
