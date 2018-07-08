@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D41B59B-C281-4BFC-B90E-4D1A00D2D8FC}</ProjectGuid>
+    <ProjectGuid>{A0BE57C8-0F81-494D-8F30-1051C2F1A7B8}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TCP服务器端</RootNamespace>
-    <AssemblyName>TCP服务器端</AssemblyName>
+    <RootNamespace>数据转换成字节数</RootNamespace>
+    <AssemblyName>数据转换成字节数</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -42,7 +42,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Message.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

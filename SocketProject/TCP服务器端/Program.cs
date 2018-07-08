@@ -51,11 +51,11 @@ namespace TCP服务器端
             string send = "你好";
             Byte[] dataBuffer = Encoding.UTF8.GetBytes(send);
             cliectSocket.Send(dataBuffer);
-            Data = new Byte[1024];
-            cliectSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, cliectSocket);
+            //Data = new Byte[1024];
+            cliectSocket.BeginReceive(msg.Data, msg.BeginCount, msg.EndCount, SocketFlags.None, ReceiveCallBack, cliectSocket);
             acceptSocket.BeginAccept(AcceptCallBack, acceptSocket);
         }
-
+        static Message msg = new Message();
         static Byte[] Data = new Byte[1024];
 
 
@@ -73,8 +73,12 @@ namespace TCP服务器端
                     }
                     return;
                 }
-                Console.WriteLine("从客户端接受到的数据" + Encoding.UTF8.GetString(Data, 0, count));
-                CallBackSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, CallBackSocket);
+                msg.addCount(count);
+                msg.ReadMessage();
+
+                //Console.WriteLine("从客户端接受到的数据" + Encoding.UTF8.GetString(Data, 0, count));
+                //CallBackSocket.BeginReceive(Data, 0, 1024, SocketFlags.None, ReceiveCallBack, CallBackSocket);
+                CallBackSocket.BeginReceive(msg.Data, msg.BeginCount, msg.EndCount, SocketFlags.None, ReceiveCallBack, CallBackSocket);
             }
             catch(SocketException)
             {

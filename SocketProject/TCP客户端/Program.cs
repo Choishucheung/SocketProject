@@ -16,15 +16,21 @@ namespace TCP客户端
             string msg = Encoding.UTF8.GetString(dataBuffer, 0, count);
             Console.Write(msg);
 
-            while (true) {
-                string s = Console.ReadLine();
-                if (s == "c") {
-                    clientSocket.Close();
-                    return;
-                }
-                Byte[] sendmsg = Encoding.UTF8.GetBytes(s);
-                clientSocket.Send(sendmsg);
-             }
+
+
+            for (int i = 0; i < 100; i++) {
+                clientSocket.Send(Message.getBeytes(i.ToString()));
+            }
+
+            //while (true) {
+            //    string s = Console.ReadLine();
+            //    if (s == "c") {
+            //        clientSocket.Close();
+            //        return;
+            //    }
+            //    Byte[] sendmsg = Encoding.UTF8.GetBytes(s);
+            //    clientSocket.Send(sendmsg);
+            // }
             Console.ReadKey();
             clientSocket.Close();
         }
