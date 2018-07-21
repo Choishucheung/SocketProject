@@ -7,6 +7,7 @@ namespace GameServer.Server
         private Socket clientSocket;
         private Server server;
         private Byte[] buffer = new Byte[1024];
+        private Message message = new Message();
         public Client() { }
         public Client(Socket clientSocket,Server server) {
             this.clientSocket = clientSocket;
@@ -14,7 +15,7 @@ namespace GameServer.Server
         }
 
         public void Start() {
-            clientSocket.BeginReceive(buffer,0,1024,SocketFlags.None,ReceiveCallBack,clientSocket);
+            clientSocket.BeginReceive(message.Data, message.BeginIndex, message.EndIndex, SocketFlags.None, ReceiveCallBack, clientSocket);
         }
 
         private void ReceiveCallBack(IAsyncResult ar)
@@ -25,8 +26,8 @@ namespace GameServer.Server
                     if (count == 0) {
                         Close();
                     }
-                clientSocket.BeginReceive(buffer, 0, 1024, SocketFlags.None, ReceiveCallBack, clientSocket);
-
+                message.ReadMessage(count);
+                Start();
             }
             catch (Exception e) {
                 Console.Write(e);
