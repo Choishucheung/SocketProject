@@ -1,3 +1,6 @@
+## 关键字
+MySqlClient MySqlConnection  MySqlCommand  MySqlDataReader  MySqlDataReader  ExecuteReader  ExecuteNonQuery
+
 ## MySQL
 
 1、Create new schema 增加一个库
@@ -45,6 +48,7 @@ MySqlDataReader reader =  comm.ExecuteReader();
 ### 5、解析MySqlDataReader
 先HasRows判断是否有读取到，然后对这个流进行解析。
 ```
+reader.Read();
 string username = reader.GetString("username");//传递索引
 ```
 
@@ -54,11 +58,32 @@ string username = reader.GetString("username");//传递索引
 
 ### 7、注意
 *C#连接MySQL异常:The host localhost does not support SSL connections*
+
 有可能是连接串写错了，建议根据MySQL版本进行查询。
 
 
 
+## 插入操作
+ExecuteNonQuery意思是除了查询的其他操作。
 
+```
+MySqlCommand comm = new MySqlCommand("insert into user set username ='"+username + "'" + ",password='"+paw+"'",conn);
+comm.ExecuteNonQuery();
+```
+> 注意：username等这些字符串是用户输入的，用户会输入语句进行SQL命令注入，需要进行判断。
+
+利用@去填入未知的值，之后用Parameters再把值填入未知参数中。
+```
+MySqlCommand cmd = new MySqlCommand("insert into user set username =@u,password=@p", conn);
+cmd.Parameters.AddWithValue("u", "用户");
+```
+
+## 删除，更新
+SQL语句不同。
+```
+delete from user where id = @id
+update user set password = @pwd where id = 1
+```
 
 
 
